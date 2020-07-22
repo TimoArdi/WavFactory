@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %} Nos Instrus {% endblock %}
+{% block body %}
+    <div class="container">
+            <h1 class="pt-3 ml-5">Instrumentals</h1>
+            <div>
+                {% for instru in instrus %}
+                    <div class="d-flex mt-3 mb-3">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ instru.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="col-6 offset-1">
+                            <h1>{{ instru.name }}</h1>
+                            <h2> by {{ instru.author }}</h2>
+                            <p>BPM: {{ instru.bpm }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    Aucune instru trouvée.
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}

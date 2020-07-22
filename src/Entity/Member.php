@@ -34,15 +34,7 @@ class Member
      */
     private $description;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Instrumental::class, mappedBy="members")
-     */
-    private $instrumentals;
 
-    public function __construct()
-    {
-        $this->instrumentals = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -85,31 +77,4 @@ class Member
         return $this;
     }
 
-    /**
-     * @return Collection|Instrumental[]
-     */
-    public function getInstrumentals(): Collection
-    {
-        return $this->instrumentals;
-    }
-
-    public function addInstrumental(Instrumental $instrumental): self
-    {
-        if (!$this->instrumentals->contains($instrumental)) {
-            $this->instrumentals[] = $instrumental;
-            $instrumental->addMember($this);
-        }
-
-        return $this;
-    }
-
-    public function removeInstrumental(Instrumental $instrumental): self
-    {
-        if ($this->instrumentals->contains($instrumental)) {
-            $this->instrumentals->removeElement($instrumental);
-            $instrumental->removeMember($this);
-        }
-
-        return $this;
-    }
 }

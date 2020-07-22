@@ -39,15 +39,6 @@ class Instrumental
      */
     private $author;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Member::class, inversedBy="instrumentals")
-     */
-    private $members;
-
-    public function __construct()
-    {
-        $this->members = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -102,29 +93,4 @@ class Instrumental
         return $this;
     }
 
-    /**
-     * @return Collection|Member[]
-     */
-    public function getMembers(): Collection
-    {
-        return $this->members;
-    }
-
-    public function addMember(Member $member): self
-    {
-        if (!$this->members->contains($member)) {
-            $this->members[] = $member;
-        }
-
-        return $this;
-    }
-
-    public function removeMember(Member $member): self
-    {
-        if ($this->members->contains($member)) {
-            $this->members->removeElement($member);
-        }
-
-        return $this;
-    }
 }
