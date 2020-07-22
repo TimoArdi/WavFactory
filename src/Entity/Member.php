@@ -1,0 +1,115 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\MemberRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass=MemberRepository::class)
+ */
+class Member
+{
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Instrumental::class, mappedBy="members")
+     */
+    private $instrumentals;
+
+    public function __construct()
+    {
+        $this->instrumentals = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Instrumental[]
+     */
+    public function getInstrumentals(): Collection
+    {
+        return $this->instrumentals;
+    }
+
+    public function addInstrumental(Instrumental $instrumental): self
+    {
+        if (!$this->instrumentals->contains($instrumental)) {
+            $this->instrumentals[] = $instrumental;
+            $instrumental->addMember($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInstrumental(Instrumental $instrumental): self
+    {
+        if ($this->instrumentals->contains($instrumental)) {
+            $this->instrumentals->removeElement($instrumental);
+            $instrumental->removeMember($this);
+        }
+
+        return $this;
+    }
+}
