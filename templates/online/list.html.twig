@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block title %} Nos Productions {% endblock %}
+{% block body %}
+    <div class="container d-flex">
+        <h1 class="pt-3 ml-5">Productions: </h1>
+        <div>
+            {% for titre in titres %}
+                <div class="d-flex mt-3 mb-3">
+                    <iframe width="800" height="600" src="https://open.spotify.com/track/{{ titre.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            {% else %}
+                Aucune production trouvée.
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Instrumental index{% endblock %}
+
+{% block body %}
+    <h1>Instrumental index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Bpm</th>
+                <th>Link</th>
+                <th>Author</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for instrumental in instrumentals %}
+            <tr>
+                <td>{{ instrumental.id }}</td>
+                <td>{{ instrumental.name }}</td>
+                <td>{{ instrumental.bpm }}</td>
+                <td>{{ instrumental.link }}</td>
+                <td>{{ instrumental.author }}</td>
+                <td>
+                    <a href="{{ path('instrumental_show', {'id': instrumental.id}) }}">show</a>
+                    <a href="{{ path('instrumental_edit', {'id': instrumental.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('instrumental_new') }}">Create new</a>
+{% endblock %}

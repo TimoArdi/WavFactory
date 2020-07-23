@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Instrumental{% endblock %}
+
+{% block body %}
+    <h1>Create new Instrumental</h1>
+
+    {{ include('instrumental/_form.html.twig') }}
+
+    <a href="{{ path('instrumental_index') }}">back to list</a>
+{% endblock %}
