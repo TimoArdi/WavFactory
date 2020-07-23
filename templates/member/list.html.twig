@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %} La WAV {% endblock %}
+{% block body %}
+    <div class="container d-flex">
+            <div class="row m-5 ">
+            {% for member in members %}
+                <div class="col-6">
+                <h1 class="text-primary">{{ member.name }}</h1>
+                <div class="d-flex mt-3 mb-3">
+                    <img src="{{ member.image }}" width="300" height="400">
+                </div>
+                </div>
+                <div class="col-6">
+                    <p><h2 class="text-secondary">Bio :</h2>{{ member.description }}</p>
+                        <a href="{{ member.instagram }}"><img src="https://www.freepnglogos.com/uploads/instagram-logos-png-images-free-download-2.png" width="50px"></a>
+                </div>
+
+            {% else %}
+                Aucune production trouvée.
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

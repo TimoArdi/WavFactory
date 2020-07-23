@@ -3,12 +3,10 @@
 {% block title %}Online index{% endblock %}
 
 {% block body %}
-    <h1>Online index</h1>
 
-    <table class="table">
-        <thead>
+    <table class="table table-light table-hover">
+        <thead class="thead-dark">
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Link</th>
                 <th>actions</th>
@@ -17,12 +15,11 @@
         <tbody>
         {% for online in onlines %}
             <tr>
-                <td>{{ online.id }}</td>
                 <td>{{ online.name }}</td>
                 <td>{{ online.link }}</td>
                 <td>
-                    <a href="{{ path('online_show', {'id': online.id}) }}">show</a>
-                    <a href="{{ path('online_edit', {'id': online.id}) }}">edit</a>
+                    <a href="{{ path('online_show', {'id': online.id}) }}">Voir plus</a>
+                    <a href="{{ path('online_edit', {'id': online.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +30,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('online_new') }}">Create new</a>
+    <a href="{{ path('online_new') }}">Ajouter nouveau placement</a>
 {% endblock %}

@@ -10,13 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/online")
- */
 class OnlineController extends AbstractController
 {
     /**
-     * @Route("/list", name="online_list", methods={"GET"})
+     * @Route("/online", name="online_list", methods={"GET"})
      * @param OnlineRepository $onlineRepository
      * @return Response
      */
@@ -32,7 +29,7 @@ class OnlineController extends AbstractController
     }
 
     /**
-     * @Route("/", name="online_index", methods={"GET"})
+     * @Route("/admin/online", name="online_index", methods={"GET"})
      * @param OnlineRepository $onlineRepository
      * @return Response
      */
@@ -44,7 +41,7 @@ class OnlineController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="online_new", methods={"GET","POST"})
+     * @Route("/admin/online/new", name="online_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -69,7 +66,7 @@ class OnlineController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="online_show", methods={"GET"})
+     * @Route("/admin/online/{id}", name="online_show", methods={"GET"})
      * @param Online $online
      * @return Response
      */
@@ -81,7 +78,7 @@ class OnlineController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="online_edit", methods={"GET","POST"})
+     * @Route("/admin/online/{id}/edit", name="online_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Online $online
      * @return Response
@@ -104,7 +101,7 @@ class OnlineController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="online_delete", methods={"DELETE"})
+     * @Route("/admin/online/{id}", name="online_delete", methods={"DELETE"})
      * @param Request $request
      * @param Online $online
      * @return Response

@@ -1,6 +1,4 @@
 @import "assets/scss/_components/navbar.scss";
-@import "~bootstrap/scss/bootstrap";
-
 $theme-colors: (
         "primary": #1C013B,
         "secondary": #FE3E57,
@@ -8,13 +6,26 @@ $theme-colors: (
         "warning":#D9B166,
         "sucess": #D3D3D3,
 );
+@import "~bootstrap/scss/bootstrap";
+@font-face {
+    font-family: "Gilroy Extra";
+    src: url("../Fonts/Gilroy-ExtraBold.otf") format("trueType");
+}
 
+body{
+    font-family: "Gilroy Extra", sans-serif;
+    color:  #1C013B;
+}
 
 html{
     height: 100%;
 }
 .mainsize {
     margin-top: 80px;
+}
+h1 {
+    font-family: "Gilroy Extra", sans-serif;
+    color: #FE3E57;
 }
 // the ~ allows you to reference things in node_modules
 

@@ -10,13 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/instrumental")
- */
 class InstrumentalController extends AbstractController
 {
     /**
-     * @Route("/list", name="instru_list")
+     * @Route("/instrumental", name="instru_list")
      * @param InstrumentalRepository $instrumentalRepository
      * @return Response
      */
@@ -30,7 +27,7 @@ class InstrumentalController extends AbstractController
         ]);
     }
     /**
-     * @Route("/", name="instrumental_index", methods={"GET"})
+     * @Route("/admin/instrumental", name="instrumental_index", methods={"GET"})
      * @param InstrumentalRepository $instrumentalRepository
      * @return Response
      */
@@ -42,7 +39,7 @@ class InstrumentalController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="instrumental_new", methods={"GET","POST"})
+     * @Route("/admin/instrumental/new", name="instrumental_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -67,7 +64,7 @@ class InstrumentalController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="instrumental_show", methods={"GET"})
+     * @Route("/admin/instrumental/{id}", name="instrumental_show", methods={"GET"})
      * @param Instrumental $instrumental
      * @return Response
      */
@@ -79,7 +76,7 @@ class InstrumentalController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="instrumental_edit", methods={"GET","POST"})
+     * @Route("/admin/instrumental/{id}/edit", name="instrumental_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Instrumental $instrumental
      * @return Response
@@ -102,7 +99,7 @@ class InstrumentalController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="instrumental_delete", methods={"DELETE"})
+     * @Route("/admin/instrumental/{id}", name="instrumental_delete", methods={"DELETE"})
      * @param Request $request
      * @param Instrumental $instrumental
      * @return Response

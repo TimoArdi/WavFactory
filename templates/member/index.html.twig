@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Member index{% endblock %}
+
+{% block body %}
+
+    <table class="table table-light table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Image</th>
+                <th scope="col">Description</th>
+                <th scope="col">Instagram</th>
+                <th scope="col">Facebook</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for member in members %}
+            <tr>
+                <td scope="row">{{ member.name }}</td>
+                <td scope="row"><img src="{{ member.image }}" width="150px"></td>
+                <td scope="row">{{ member.description }}</td>
+                <td scope="row">{{ member.instagram }}</td>
+                <td scope="row">{{ member.facebook }}</td>
+                <td scope="row">
+                    <a href="{{ path('member_show', {'id': member.id}) }}">Voir plus</a>
+                    <a href="{{ path('member_edit', {'id': member.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('member_new') }}">Ajoutez nouveau membre</a>
+{% endblock %}

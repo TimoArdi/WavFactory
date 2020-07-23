@@ -3,12 +3,9 @@
 {% block title %}Instrumental index{% endblock %}
 
 {% block body %}
-    <h1>Instrumental index</h1>
-
-    <table class="table">
-        <thead>
+    <table class="table table-light table-hover">
+        <thead class="thead-dark">
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Bpm</th>
                 <th>Link</th>
@@ -19,14 +16,13 @@
         <tbody>
         {% for instrumental in instrumentals %}
             <tr>
-                <td>{{ instrumental.id }}</td>
                 <td>{{ instrumental.name }}</td>
                 <td>{{ instrumental.bpm }}</td>
                 <td>{{ instrumental.link }}</td>
                 <td>{{ instrumental.author }}</td>
                 <td>
-                    <a href="{{ path('instrumental_show', {'id': instrumental.id}) }}">show</a>
-                    <a href="{{ path('instrumental_edit', {'id': instrumental.id}) }}">edit</a>
+                    <a href="{{ path('instrumental_show', {'id': instrumental.id}) }}">Voir plus</a>
+                    <a href="{{ path('instrumental_edit', {'id': instrumental.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('instrumental_new') }}">Create new</a>
+    <a href="{{ path('instrumental_new') }}">Ajouter une nouvelle instrumentale</a>
 {% endblock %}
