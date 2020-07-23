@@ -22,8 +22,11 @@ class OnlineController extends AbstractController
      */
     public function list(OnlineRepository $onlineRepository): Response
     {
+        $pixs = ["whitefactory.jpg"];
+
         $titres = $onlineRepository->findAll();
         return $this->render('online/list.html.twig', [
+            'pixs' => $pixs,
             'titres' => $titres,
         ]);
     }
