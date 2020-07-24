@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger {{ '/' == app.request.pathinfo or 'member' in app.request.pathinfo ? 'text-secondary' : '' }}" href="{{ path('member_list') }}">La WAV</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger {{ 'instrumental' in app.request.pathinfo ? 'text-secondary' : '' }}" href="{{ path('instru_list') }}">Instrumentals</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger {{ 'instrumental' in app.request.pathinfo ? 'text-secondary' : '' }}" href="{{ path('instru_list') }}">Instrumentales</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger {{ 'online' in app.request.pathinfo ? 'text-secondary' : '' }}" href="{{ path('online_list') }}">Production</a></li>
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item"><a class="nav-link js-scroll-trigger {{ 'admin' in app.request.pathinfo ? 'text-secondary' : '' }}" href="{{ path('admin_dash') }}">Administration</a></li>
